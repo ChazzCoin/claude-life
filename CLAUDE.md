@@ -78,11 +78,15 @@ No binaries unless they're inputs to `/publish`.
 
 ## Domains
 
-Domain-specific rules live in prefix files (added in Wave 3):
+Domain-specific rules live in prefix files:
 
 - `.claude/vsi-rules.md` — VSI-specific
 - `.claude/rai-rules.md` — rAI-specific
-- `.claude/personal-rules.md` — personal life
+- `.claude/personal-rules.md` — personal life (health, finances,
+  relationships, growth)
+
+See `life-rules.md` "Domain layering" for how Claude detects
+which file(s) to read in a given session.
 
 Tasks cut across domains via filename prefix
 (`vsi-2026-q2-fundraising.md`, `personal-health-bloodwork.md`),
@@ -102,9 +106,9 @@ CLAUDE.md                 # this file
   world-view.md
   life-rules.md           # universal rules
   state.md                # latest state check-in
-  vsi-rules.md            # domain (Wave 3)
-  rai-rules.md            # domain (Wave 3)
-  personal-rules.md       # domain (Wave 3)
+  vsi-rules.md            # domain — VSI
+  rai-rules.md            # domain — rAI
+  personal-rules.md       # domain — personal (health, $, etc.)
   pact.md welcome.md ...  # primitives
   skills/                 # slash commands
   modes/                  # drives

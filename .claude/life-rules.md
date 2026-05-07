@@ -160,13 +160,28 @@ dysfunction.
 When a session involves a specific domain, read the matching
 rules file alongside this one:
 
-- VSI work → `.claude/vsi-rules.md` *(Wave 3)*
-- rAI work → `.claude/rai-rules.md` *(Wave 3)*
-- Personal life → `.claude/personal-rules.md` *(Wave 3)*
+- VSI work → `.claude/vsi-rules.md`
+- rAI work → `.claude/rai-rules.md`
+- Personal life → `.claude/personal-rules.md`
 
-Cross-domain work (a personal stressor affecting business
-performance, e.g.) reads both. The prefix is a discovery hint,
-not a gate.
+The prefix is a discovery hint, not a gate.
+
+### How to detect domain
+
+Domain is signaled by conversation content, not file paths.
+Heuristics in priority order:
+
+| Signal | Action |
+|---|---|
+| Explicit name (`VSI`, `rAI`, names of co-founders / people known to be in that domain) | Read that domain's rules file alongside `life-rules.md`. |
+| Topic words (a specific product name, an internal term from `<domain>-rules.md` Terminology section) | Read the matching domain. |
+| Cross-domain ("VSI fundraise is wrecking me physically", "I can't stop thinking about my dad during work") | Read multiple — both business + personal rules. |
+| No domain marker ("I'm tired", "what do I have today") | Just `life-rules.md` and primitives. |
+| Ambiguous (can't tell from context) | Ask: "VSI, rAI, or personal?" |
+
+When in doubt, **read more rather than fewer**. Over-reading
+domain rules costs nothing; under-reading risks missing a
+sensitivity or off-limit declared by the user.
 
 ## On the aligned journey
 
