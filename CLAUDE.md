@@ -1,197 +1,138 @@
-# CLAUDE.md
+# claude-life
 
-Working context for Claude Code sessions on this repo. Read this
-before making non-trivial changes.
+Personal life-management system for Chazz Romeo. Single-user,
+private repo, accessed from any device. Markdown-only. This is
+not a software project — it's a system for managing my actual
+life: memories, reminders, todos, work life (VSI + rAI),
+personal life, goals, and the alignment between them.
 
-> This file is **project-specific**. It overrides and extends the
-> generic foundation in `.claude/task-rules.md`. Update the
-> placeholders below for this project. The kit's `/sync` will never
-> overwrite this file — it's yours to evolve.
+> This file extends the global contract at `~/.claude/CLAUDE.md`.
+> It does not override it. The global contract owns honesty,
+> tone, and working style. This file owns project-specific
+> structure and the privacy/sharing posture.
 
 ## 🪡 Auto-loaded primitives
 
-Claude Code follows `@`-imports here. The kit ships a set of small
-primitive files that should be loaded on every session — leave the
-imports below in place unless you've removed the corresponding
-file. Delete a line if the file isn't used in this project.
+These imports run on every session start:
 
 @.claude/welcome.md
 @.claude/pact.md
+@.claude/values.md
+@.claude/vision.md
+@.claude/life-rules.md
 @.claude/mode.md
-@.claude/bookmarks.md
 @.claude/wont-do.md
-@docs/notes/INDEX.md
+@.claude/bookmarks.md
 
 *Why each one:*
-- **`welcome.md`** — first-thing context: where you left off, what's
-  in flight. Auto-updated by `/handoff`.
-- **`pact.md`** — your working-relationship preferences with Claude.
-  Portable across repos.
-- **`mode.md`** — currently-active work mode (a *drive*, not a
-  filter). Only present when a mode is active. When loaded, its
-  drive prose shapes Claude's appetite for the session. Switch with
-  `/mode <name>`; clear with `/mode normal`. See the kit's
-  `kit/modes/README.md` for the concept.
-- **`bookmarks.md`** — curated `path:line` pointers for fast
-  orientation.
-- **`wont-do.md`** — anti-feature list. Stops relitigating closed
-  conversations.
-- **`docs/notes/INDEX.md`** — rolling index of `/lessons` notes.
-  Future Claude sessions read prior learnings on session start.
-
-If your project uses `/inbox`, add `@.claude/inbox/<your-handle>.md`
-to load your messages on session start.
-
-**Project terminology overrides.** Define any project-specific
-meanings of kit terms (versioning, lifecycle states, verification
-gate, etc.) in `.claude/vocabulary-overrides.md`. Defaults are in
-`.claude/vocabulary.md`.
+- **welcome.md** — where I left off, what's live. Updated by `/handoff`.
+- **pact.md** — life-specific working preferences with Claude.
+- **values.md** — north star. The anchor.
+- **vision.md** — long-arc direction.
+- **life-rules.md** — universal rules for working on life.
+- **mode.md** — currently-active mode (only present when one is active).
+- **wont-do.md** — closed conversations / anti-list.
+- **bookmarks.md** — re-find pointers across the repo.
 
 ## What this is
 
-{{ONE-PARAGRAPH PROJECT DESCRIPTION — what does this project do, who
-uses it, why does it exist? Be specific. Not marketing. Replace this
-text.}}
+claude-life manages the whole of one person's life across:
 
-## Platform
+- **VSI** — co-founder + CTO
+- **rAI** — co-founder + CTO
+- **Personal** — health, relationships, finances, growth, identity
+- **Aligned journey** — the through-line. Are today's actions
+  consistent with `values.md` and `vision.md`? A recurring check,
+  not a doc.
 
-{{Declare the project's platform so universal skills (especially
-`/release`) can find the right platform-specific extensions.}}
+The structure is layered:
+- **Anchors** (`values.md`, `vision.md`) — change rarely.
+- **Domains** (VSI, rAI, personal) — ongoing context per area.
+- **Tasks** (`tasks/{backlog,active,done,recurring}/`) — things to do.
+- **Journal** (`journal/YYYY/MM/DD.md`) — raw daily processing.
+- **Memories** (`memories/{people,events,places}/`) — durable facts.
+- **Docs** (`docs/{decisions,regrets,retros,lessons,audits,...}/`)
+  — reflective records.
 
-**Platform:** {{ios | web | python | android | backend | universal}}
+## Privacy posture
 
-When this is set, agents read the matching `.claude/<platform>-*.md`
-files (e.g. `.claude/ios-task-rules.md`,
-`.claude/ios-conventions.md`) alongside the universal
-`.claude/task-rules.md`. Multi-platform projects can list more than
-one — e.g. `ios + python` for an iOS app talking to a Python API,
-or `web + python` for a web frontend with a Python backend.
-Agents will read all relevant prefix files for cross-boundary work.
+**Everything is private by default.** This repo never goes public.
+External-facing data is published via an explicit `/publish`
+projection (Wave 4 — see `tasks/PHASES.md`). Sharing is an active
+decision per piece, never a directory placement.
 
-If `universal`, only the unprefixed kit files apply — useful for
-docs sites, libraries, or projects whose platform isn't yet
-represented in the kit.
+## Phone access
 
-The `/release` skill detects this declaration first, then falls
-back to inferring from manifest files (`*.xcodeproj` → ios,
-`pyproject.toml` → python, `package.json` → web, etc.).
+This repo gets read and edited from any device — laptop, phone,
+iPad. Hard constraint: **markdown only, no special tooling
+required to read.** Paths stay readable. Filenames stay readable.
+No binaries unless they're inputs to `/publish`.
 
-## Tech stack
+## Domains
 
-{{LIST THE STACK — language(s), framework(s), runtime(s), key
-libraries, databases, hosting, third-party services. Anything that
-would change how someone reads the code.}}
+Domain-specific rules live in prefix files (added in Wave 3):
 
-Examples to delete:
-- Vite 6 + React 18 + Tailwind 3
-- Firebase (Auth + Realtime Database)
-- Node 20+ required
+- `.claude/vsi-rules.md` — VSI-specific
+- `.claude/rai-rules.md` — rAI-specific
+- `.claude/personal-rules.md` — personal life
 
-## Commands
+Tasks cut across domains via filename prefix
+(`vsi-2026-q2-fundraising.md`, `personal-health-bloodwork.md`),
+not separate folders. A task can be VSI-and-personal at once —
+folders force false partitioning.
 
-The skills (`/build`, `/run`, `/release`) and the verification gate
-in `task-rules.md` discover commands from this section. Fill them in
-once and the rest of the kit picks them up.
+## Phase
 
-| Purpose | Command |
-|---|---|
-| **Build** | `{{BUILD COMMAND — e.g. npm run build, cargo build, ./gradlew build, swift build}}` |
-| **Run / dev** | `{{RUN COMMAND — e.g. npm run dev, cargo run, python main.py}}` |
-| **Test (verification gate)** | `{{HEADLESS TEST COMMAND — e.g. npm run test:e2e, pytest, go test ./..., cargo test}}` |
-| **Test (focused / watched)** | `{{FILTERED OR WATCHED TEST COMMAND — e.g. npm run test:e2e:watch -- TASK-XXX}}` |
-| **Test (parade — final review)** | `{{FULL HEADED SUITE — e.g. npm run test:e2e:watch}}` |
-| **Deploy** | `{{DEPLOY COMMAND — e.g. npm run deploy, fastlane release}}` |
-| **Rollback** | `{{ROLLBACK COMMAND — e.g. firebase hosting:rollback, kubectl rollout undo}}` |
-| **Dependency audit** | `{{AUDIT COMMAND — e.g. npm audit, cargo audit, pip-audit}}` |
+Current chapter — see [`tasks/PHASES.md`](tasks/PHASES.md).
 
-If any of these don't apply, write `n/a` and leave a one-line note.
-
-## Toolchain pinning
-
-{{LIST VERSION PINS THE PROJECT REQUIRES — node version, python
-version, ruby version, xcode version, etc. Note where they're
-pinned (.nvmrc, .tool-versions, etc.).}}
-
-Example to delete:
-- Node 20+ required (`.nvmrc`). For non-interactive shells:
-  `export NVM_DIR="$HOME/.nvm" && \. "$NVM_DIR/nvm.sh" && nvm use`
-
-## Folder layout
+## Where things live
 
 ```
-{{TOP-LEVEL DIRECTORY TREE — what's where, with one-line annotations.
-Don't enumerate every file; just the structure that orients a reader.}}
+CLAUDE.md                 # this file
+.claude/                  # skills, modes, rules, primitives
+  values.md vision.md     # anchors
+  life-rules.md           # universal rules
+  vsi-rules.md            # domain (Wave 3)
+  rai-rules.md            # domain (Wave 3)
+  personal-rules.md       # domain (Wave 3)
+  pact.md welcome.md ...  # primitives
+  skills/                 # slash commands
+  modes/                  # drives
+tasks/
+  backlog/ active/ done/  # lifecycle
+  recurring/              # daily/weekly rituals
+  PHASES.md ROADMAP.md AUDIT.md
+journal/YYYY/MM/DD.md     # daily entries
+memories/
+  people/<name>.md
+  events/ places/
+docs/
+  decisions/ regrets/ retros/ notes/   # reflective records
+  audits/ handoff/ postmortems/ gratitude/ exports/
+api/                      # external projection layer (Wave 4)
+README.md                 # private — for me, on my phone
 ```
 
-## Schema ownership
+## Session start
 
-{{IF THIS PROJECT MIRRORS AN EXTERNALLY-OWNED SCHEMA, document it here.
-Who owns it? Where is the canonical source? What's the discipline?
+Read `welcome.md`, then check `tasks/active/`, then today's
+`journal/` entry if one exists. Or run `/morning` (Wave 2).
 
-If the project owns its own schema, delete this section and replace
-with: "This project owns its own schema; no external mirror discipline
-applies."}}
+## On honesty
 
-Example to delete:
-> iOS owns the schema. Field names are byte-identical to Realm classes.
-> The canonical source lives at `../ios-app/Sources/Models/`. Use
-> `/schema-check` to reconcile.
+The global CLAUDE.md owns this in detail. Worth restating the
+short form here because life-content is harder to be blunt about
+than code:
 
-## Schema registry
+- "I don't know" is allowed and expected.
+- No narratives. No spin. No shaping the conclusion to feel good
+  or bad. The point is progress on the question, not comfort.
+- Calibrate confidence: "I checked X" vs "I think Y based on Z"
+  vs "this is a guess."
 
-{{IF THIS PROJECT HAS A FILE THAT REGISTERS ALL DATA PATHS / TYPES /
-COLLECTIONS, identify it here. The schema-discipline rule references
-this file. Delete this section if not applicable.}}
-
-Example to delete:
-> `src/firebase/paths.js` is the canonical registry of all RTDB
-> collections. Any new collection must be added there. Don't bypass
-> with one-off `ref(rtdb, "...")` calls.
-
-## Gated files (project-specific extensions)
-
-The kit's `task-rules.md` lists generic gated-file categories.
-This section adds project-specific ones:
-
-{{LIST FILES OR DIRECTORIES THAT REQUIRE EXPLICIT PERMISSION TO TOUCH
-IN THIS PROJECT BEYOND THE GENERIC LIST. Things like critical config,
-security rules, generated code, vendored files. Delete if no extras.}}
-
-## Local dev
-
-{{HOW TO GET A FRESH CLONE RUNNING. Step-by-step — install deps, env
-vars, secrets, run command, expected output. The goal: a new
-contributor can clone and be running in 10 minutes.}}
-
-## Environment variables
-
-{{LIST ENV VARS THE PROJECT READS. Reference .env.example as the
-authoritative list. Note any that are required vs optional.}}
-
-## Test infrastructure
-
-{{IF THE PROJECT HAS NON-OBVIOUS TEST SETUP — test accounts, fixture
-data, emulator vs production targets, etc. — document it here. The
-test-pairing convention also lives here:}}
-
-**Test/task pairing:** {{e.g. "every E2E spec is paired 1:1 with a
-task. Filename `e2e/tests/TASK-XXX-slug.spec.js` matches the task ID
-and slug. The first line of the spec links back to the task file."}}
-
-## Deploy
-
-{{HOW DEPLOY WORKS IN THIS PROJECT. Live URL, hosting service,
-named-site / project / environment specifics, who has access, where
-to find logs.}}
-
-## Conventions
-
-{{PROJECT-SPECIFIC CODE / DESIGN CONVENTIONS THAT AREN'T OBVIOUS
-FROM READING THE CODE. Naming patterns, component shapes, data flow,
-gotchas. Anything you'd tell a new contributor in their first hour.}}
+This is non-negotiable.
 
 ## Pause points / open questions
 
-{{KNOWN ROUGH EDGES, DEFERRED DECISIONS, THINGS THE TEAM IS AWARE OF
-BUT HASN'T ADDRESSED. Honest about gaps. Empty is fine if there are
-none.}}
+Tracked in [`tasks/AUDIT.md`](tasks/AUDIT.md) under their dates.
+Empty is fine.

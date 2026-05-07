@@ -1,48 +1,38 @@
 # 🎵 Playlists
 
-Curated chains of skills for routine moments. Read one, run the
-chain. Saves remembering the order.
-
-Edit freely. Add your own. Each playlist is a one-line recipe per
-step.
+Curated chains for routine moments. Read one, run the chain.
 
 ---
 
-## 🌅 Morning ritual
+## 🌅 Morning
 
-1. Read [`.claude/welcome.md`](welcome.md) — what was I doing yesterday
-2. `/status` — where do things stand
-3. `/backlog` — anything new since last check
-4. Pick a task or resume the active one
+1. Read [`.claude/welcome.md`](welcome.md) — where I left off
+2. `/morning` *(Wave 2)* — daily kickoff
+3. Check [`tasks/active/`](../tasks/active/) — what's already in flight
+4. Skim [`journal/`](../journal/) for yesterday's entry — context
 
-## 🌙 End of day
+## 🌙 Evening
 
-1. `/lessons` — capture what I learned today
-2. `/handoff` — snapshot in-flight context for tomorrow *(also rewrites `welcome.md`)*
+1. `/journal` *(Wave 2)* — capture the day
+2. `/evening` *(Wave 2)* — wrap and prep tomorrow
+3. `/handoff` — snapshot for tomorrow's first read
 
 ## 📅 Weekly
 
-1. `/retro 1w` — look back, find patterns
-2. `/update-docs` — sync any documentation drift
-3. `/sync` — pull any kit updates
+1. `/weekly-review` *(Wave 2)* — GTD-style review
+2. `/retro 1w` — patterns over the week
+3. `/goals` *(Wave 2)* — recheck active goals against the week
 
-## 🚀 Pre-release
+## 🗓 Monthly
 
-1. `/audit <changed-area>` — final read on changed code
-2. `/blast-radius` — check the dangerous bits
-3. `/release` — ship it
+1. `/retro 1m` — patterns over the month
+2. `/audit <domain>` — pick one life-area for a deeper read
+3. `/values` *(Wave 2)* — does anything want to change?
 
-## 🆕 Joining a new repo
+## 🌟 Quarterly / Annual
 
-1. `/onboard` — guided walkthrough of documented project
-2. `/skills` — what's available
-3. `/wrangle` — if the repo is chaotic, audit + build context
-
-## 🤝 Multi-dev coordination
-
-1. `/inbox` — read messages addressed to you
-2. *(optional)* `/inbox to <name>: <message>` — flag something for a teammate
-3. `git pull` — sync any teammate inbox writes
+1. `/quarterly-review` or `/annual-review` *(Wave 2)*
+2. `/vision` *(Wave 2)* — does the long arc still feel right?
 
 ## 🧠 Stuck or undecided
 
@@ -50,12 +40,23 @@ step.
 2. `/brainstorm <topic>` — open or resume a tradeoff session
 3. `/decision` — when the brainstorm converges
 
+## ⚡ Mid-day reset
+
+1. `/check-in` *(Wave 2)* — mood, energy, focus
+2. `/oncall` *(Wave 2)* — what's actually live in life right now
+3. `/mode <name>` — switch to whatever this afternoon needs
+
+## 🤝 Before a hard conversation
+
+1. Read relevant `memories/people/<name>.md`
+2. `/brainstorm` — what do I want from this?
+3. `/journal` — write the version of the conversation I'm
+   afraid to have, then decide what to take into the real one
+
 ---
 
-*Add your own playlists below. Friction goes down when the routine
-moves are written down.*
+*Add your own playlists below.*
 
 ## {{Your playlist name}}
 
 1. {{step}}
-2. {{step}}

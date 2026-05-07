@@ -1,57 +1,70 @@
 # Audit log
 
-Append-only chronological record of meaningful actions —
-releases, task ships, rule changes, scaffolding events.
+Append-only chronological record of meaningful life events —
+chapters opened/closed, major decisions, life events, rule
+changes in `life-rules.md`, scaffolding events in this repo.
 
-Newest entries on top. Each entry is one to a few lines —
-*what happened*, *when*, and *where to find the receipts*
-(PR numbers, tags, commit SHAs).
+Newest entries on top. Each entry: date, what happened, where
+the receipts are (decision file, journal entry, etc.).
 
-The git log is the ground truth; this file is the curated,
-human-readable layer on top. Don't log every tweak — log the
-things a future reader needs to navigate the project's history.
+The journal is the daily ground truth; this file is the curated
+human-readable layer for things future-me will need to navigate
+the long arc.
 
 ---
 
-## Maintenance rule
+## Format
 
-Per `task-rules.md`'s "Audit log" section: every batch closing
-report appends entries here for each task that landed and each
-deploy that shipped. Process changes (new rules in
-`task-rules.md`, new conventions) get their own entries.
-
-The format is loose on purpose — readability beats parseability.
-What matters: date, what changed, link to the PR / tag /
-commit.
-
-Use ISO dates (YYYY-MM-DD). Don't backdate; if you forgot to
-log something, log it today with a "(retroactive)" marker.
+- **Newest entries on top** within their date section.
+- ISO date headers (`## YYYY-MM-DD`).
+- One to a few lines per entry. Lead with what happened, end
+  with the receipt link.
+- Don't backdate. If you forgot to log something, log it today
+  with `(retroactive)`.
 
 Emoji set:
-- 🚀 production deploys
-- 📦 task ships
-- 📜 rule / process changes
-- 🏗 major scaffolding
-- 🔥 hotfixes
-- ⚠️ incidents and honest tradeoff calls
+- 🌅 chapter opened
+- 🌇 chapter closed
+- 🧭 decision made
+- ⚠️ event / incident / honest tradeoff
+- 📜 rule change in `life-rules.md` or any `*-rules.md`
+- 🏗 repo scaffolding (any structural change to claude-life
+  itself)
+- 💡 emerged pattern codified
+
+## What to log
+
+- 🌅 / 🌇 chapter transitions
+- 🧭 major decisions (the ones with `docs/decisions/` entries)
+- ⚠️ life events worth a postmortem
+- 📜 changes to `life-rules.md` or domain `*-rules.md`
+- 🏗 changes to claude-life's structure itself
+
+## What NOT to log
+
+- Daily journal entries — those are in `journal/`.
+- Routine task completion — that's git history.
+- Every thought — that's what `journal/` is for.
 
 ---
 
-## {{TODAY'S DATE — YYYY-MM-DD}}
+## 2026-05-07
 
-- 🏗 **Project bootstrapped from claude-kit.** Initial `.claude/`
-  setup installed via `bin/init`. Source:
-  https://github.com/chazzcoin/claude-kit.
+- 🏗 **claude-life rearchitected from claude-kit foundation.**
+  Stripped coding-specific skills/rules; replaced with
+  life-management content layer. Meta-architecture
+  (skills/modes/rules) preserved. Source kit:
+  https://github.com/ChazzCoin/claude-kit at `620ad508`.
 
 ---
 
 ## What this log is for
 
-- **Project history.** A reviewer who joins later can read this
-  top-to-bottom and understand what was built when.
-- **Release retrospectives.** Search for a tag (`vX.Y.Z`) to find
-  what shipped in it.
-- **Process evolution.** Search for "rule added" to see how the
-  workflow changed over time.
-- **Honest tradeoff record.** When we made an opinionated call,
-  the entry here is the receipt.
+- **The long arc.** A reader (future-me, or anyone with
+  access) can read top-to-bottom and trace the shape of life.
+- **Decision archaeology.** Search for a decision date to
+  recover context.
+- **Process evolution.** Search for `📜` to see how the
+  working contract evolved.
+- **Honest record of hard moments.** ⚠️ entries are the
+  receipts.

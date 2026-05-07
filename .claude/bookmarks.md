@@ -1,45 +1,37 @@
 # 🔖 Bookmarks
 
-Curated `path:line` pointers. Read this on session start to land
-oriented instead of grep-scanning. Add anything you find yourself
-re-finding.
+Things in this repo I find myself re-finding. One line each, with
+context. Read on session start to land oriented.
 
-Format: `[path:line](relative-link) — one-line context`. Keep
-entries dense; one line each.
+Format: `[title](relative-path) — one-line context`. Keep dense.
+Prune when the underlying content moves.
 
 ---
 
-## Entry points
+## Anchors
 
-- {{`src/main.ext:LINE` — where execution begins}}
-- {{`server.ts:18` — boot sequence + dependency injection}}
+- [values.md](values.md) — the north star
+- [vision.md](vision.md) — long-arc direction
+- [life-rules.md](life-rules.md) — universal rules
 
-## Architectural seams
+## Right now
 
-- {{`src/services/auth.ts:42` — the interface between auth and the rest}}
-- {{`src/lib/storage.ts:1` — the abstraction over the underlying DB}}
+- {{`tasks/active/<slug>.md` — what I'm working on this week}}
+- {{`docs/decisions/YYYY-MM-DD-<thing>.md` — recent live decision}}
 
-## Schema / data model
+## Reference
 
-- {{`src/models/index.ts:1` — canonical schema definitions}}
-- {{`migrations/registry.ts:1` — migration registry}}
+- {{`memories/people/<name>.md` — co-founder context}}
+- {{`docs/retros/YYYY-Q1.md` — last quarter's retro}}
+- {{`docs/audits/YYYY-MM-finances.md` — most recent finances audit}}
 
 ## The weird stuff
 
-- {{`src/legacy/compat.ts:14` — workaround for the legacy API. Don't simplify.}}
-- {{`src/config.ts:88` — magic constant that's load-bearing — see decision <date>.}}
-
-## Tests
-
-- {{`tests/example.spec.ts:1` — canonical test pattern; copy this shape}}
-
-## Configuration
-
-- {{`.env.example` — required env vars}}
-- {{`vite.config.ts:24` — build aliases}}
+- {{things that aren't where you'd expect to find them.
+  Document the surprise here so future-you doesn't waste time
+  re-finding.}}
 
 ---
 
-*Bookmarks are project-specific. Edit freely. The kit's `/sync`
-won't touch this file. Stale bookmarks are worse than missing ones
-— prune when the code moves.*
+*Edit freely. Stale bookmarks are worse than missing ones —
+prune when the linked content moves.*

@@ -1,27 +1,28 @@
 # 🚫 Won't do
 
-Things this project has decided **not** to support. Listed
-explicitly so we stop relitigating. If you want to do one of
-these, that's a real conversation — open it deliberately, not
-as a drive-by suggestion.
+Things I have decided **not** to do. Listed explicitly so I stop
+re-litigating closed conversations. Each line is a decision
+already made.
 
-Each line below is a **closed conversation**.
+If I want to reopen one, it's a real conversation — open it
+deliberately via `/decision`, don't drift back into it.
 
 ---
 
-- {{Won't support IE11 or pre-2020 browsers.}}
-- {{Won't add inline code comments. Names should explain.}}
-- {{Won't go cross-platform — desktop only by design.}}
-- {{Won't switch state management again. Decided in <year>.}}
-- {{Won't ship telemetry without opt-in consent.}}
-- {{Won't add a CMS. The team writes content in markdown.}}
+- {{Won't optimize for productivity per se — meaning matters more
+  than throughput.}}
+- {{Won't schedule things back-to-back. Buffer is mandatory.}}
+- {{Won't say yes the same day someone asks. 24 hours minimum.}}
+- {{Won't bring laptop to bed.}}
+- {{Won't track macros. Tracked, hated, decided.}}
 
 ---
 
 ## Format
 
 `Won't <thing>` — one line, present tense, terse. If reopening,
-move the line to a `/decision` doc and explain what changed.
+move the line into a `docs/decisions/` file and explain what
+changed.
 
-*This file is project-specific. Edit freely. The kit's `/sync`
-won't touch it.*
+*Edit freely. Replace placeholders with your actual closed
+conversations.*

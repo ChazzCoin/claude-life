@@ -1,47 +1,59 @@
 # Roadmap
 
-Phase-by-phase task registry for this project. Each phase has a name,
-a scope paragraph, and an ordered list of tasks. Order implies
-suggested ship order.
+Goals + tasks across horizons. Ordered by current-chapter
+relevance.
 
-The skills `/roadmap` (full per-phase view) and `/backlog`
-(forward-looking only) parse this file as the source of truth for
-which tasks belong to which phase.
+The skills `/roadmap` and `/goals` *(Wave 2)* parse this file
+as the source of truth for active goals.
 
-For phase scopes only (no task lists), see [`PHASES.md`](PHASES.md).
+For chapter scopes only (no task lists), see
+[`PHASES.md`](PHASES.md).
 
 ---
 
-## Phase 1 — {{NAME}}
+## Chapter 1 — {{NAME}}
 
-> **Scope.** {{Same scope paragraph as in PHASES.md.}}
+> **North Star.** {{Same as PHASES.md.}}
 
-Tasks (in suggested ship order):
+### This week
 
 - TASK-001 — {{Title}}
 - TASK-002 — {{Title}}
-- TASK-003 — {{Title}}
+
+### This quarter
+
+- {{Goal-shaped item, not a task. Multi-week.}}
+- {{Goal-shaped item}}
+
+### This year
+
+- {{Yearly milestone}}
 
 ---
 
-## Phase 2 — {{NAME}}
+## Cross-chapter — Recurring
 
-> **Scope.** {{...}}
+Things that aren't tied to a chapter's North Star but live
+across all of them. Daily/weekly/monthly rituals. Living
+practices.
 
-Tasks:
+- {{Daily journal — non-negotiable}}
+- {{Weekly review — Sunday evening}}
+- {{Monthly retro — first weekend of each month}}
 
-- TASK-NNN — {{Title}}
-
----
-
-## Cross-cutting
-
-Tasks that don't fit a single phase — typically infrastructure that
-several phases depend on. Use sparingly.
-
-- TASK-000 — {{Title (if any)}}
+(Recurring task spec files live in `tasks/recurring/`.)
 
 ---
 
-*(Add phases and tasks as the project evolves. Use `/task` to file
-tasks; use `/plan` to think through new phases.)*
+## Decade horizon
+
+A few items only. The 10-year picture in `vision.md` is
+narrative; this is the small set of *things* that need to
+happen in the next decade.
+
+- {{decade item 1}}
+
+---
+
+*Edit freely. Use `/goals` (Wave 2) to keep this synced with
+ground reality.*
