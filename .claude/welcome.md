@@ -18,7 +18,7 @@ where my head was. /handoff overwrites this on end-of-session.}}
 ## What to read first
 
 - [`tasks/active/`](../tasks/active/) — anything in flight
-- [`journal/`](../journal/) — most recent entry
+- [`timeline/`](../timeline/) — most recent entry
 - [`docs/notes/INDEX.md`](../docs/notes/INDEX.md) — recent learnings *(if `/lessons` is in use)*
 - [`.claude/inbox/`](inbox/) — unread inbox items *(if `/inbox` is in use)*
 

@@ -12,7 +12,9 @@ Prune when the underlying content moves.
 
 - [values.md](values.md) — the north star
 - [vision.md](vision.md) — long-arc direction
+- [world-view.md](world-view.md) — descriptive frame
 - [life-rules.md](life-rules.md) — universal rules
+- [state.md](state.md) — latest state check-in
 
 ## Right now
 

@@ -19,7 +19,9 @@ These imports run on every session start:
 @.claude/pact.md
 @.claude/values.md
 @.claude/vision.md
+@.claude/world-view.md
 @.claude/life-rules.md
+@.claude/state.md
 @.claude/mode.md
 @.claude/wont-do.md
 @.claude/bookmarks.md
@@ -27,9 +29,11 @@ These imports run on every session start:
 *Why each one:*
 - **welcome.md** — where I left off, what's live. Updated by `/handoff`.
 - **pact.md** — life-specific working preferences with Claude.
-- **values.md** — north star. The anchor.
-- **vision.md** — long-arc direction.
+- **values.md** — north star. How I want to move through the world.
+- **vision.md** — long-arc direction. Where I'm going.
+- **world-view.md** — descriptive frame. How I think reality works.
 - **life-rules.md** — universal rules for working on life.
+- **state.md** — latest state check-in. Informs posture, not permissions.
 - **mode.md** — currently-active mode (only present when one is active).
 - **wont-do.md** — closed conversations / anti-list.
 - **bookmarks.md** — re-find pointers across the repo.
@@ -46,13 +50,17 @@ claude-life manages the whole of one person's life across:
   not a doc.
 
 The structure is layered:
-- **Anchors** (`values.md`, `vision.md`) — change rarely.
+- **Anchors** (`values.md`, `vision.md`, `world-view.md`) — change rarely.
+- **State** (`.claude/state.md`) — latest check-in; informs Claude's posture.
 - **Domains** (VSI, rAI, personal) — ongoing context per area.
 - **Tasks** (`tasks/{backlog,active,done,recurring}/`) — things to do.
-- **Journal** (`journal/YYYY/MM/DD.md`) — raw daily processing.
+- **Timeline** (`timeline/YYYY/MM/DD.md` + era/) — the spine.
+  Today's events, retroactive memories, state-block history.
 - **Memories** (`memories/{people,events,places}/`) — durable facts.
-- **Docs** (`docs/{decisions,regrets,retros,lessons,audits,...}/`)
+- **Docs** (`docs/{decisions,regrets,retros,notes,...}/`)
   — reflective records.
+- **Archive** (`archive/`) — prior versions of evolved files.
+  Never delete; archive then rewrite.
 
 ## Privacy posture
 
@@ -90,8 +98,10 @@ Current chapter — see [`tasks/PHASES.md`](tasks/PHASES.md).
 ```
 CLAUDE.md                 # this file
 .claude/                  # skills, modes, rules, primitives
-  values.md vision.md     # anchors
+  values.md vision.md     # anchors (3)
+  world-view.md
   life-rules.md           # universal rules
+  state.md                # latest state check-in
   vsi-rules.md            # domain (Wave 3)
   rai-rules.md            # domain (Wave 3)
   personal-rules.md       # domain (Wave 3)
@@ -99,24 +109,27 @@ CLAUDE.md                 # this file
   skills/                 # slash commands
   modes/                  # drives
 tasks/
-  backlog/ active/ done/  # lifecycle
-  recurring/              # daily/weekly rituals
+  backlog/ active/ done/ recurring/
   PHASES.md ROADMAP.md AUDIT.md
-journal/YYYY/MM/DD.md     # daily entries
+timeline/                 # the spine — events + journal + retroactive
+  YYYY/MM/DD.md           # today + state blocks
+  YYYY/MM/DD-<slug>.md    # individual events
+  era/<eraname>/          # genuinely no-year
 memories/
-  people/<name>.md
+  people/{family,business,core,friends,lost}/<name>.md
   events/ places/
 docs/
-  decisions/ regrets/ retros/ notes/   # reflective records
+  decisions/ regrets/ retros/ notes/
   audits/ handoff/ postmortems/ gratitude/ exports/
-api/                      # external projection layer (Wave 4)
+archive/                  # prior versions of evolved files
+api/                      # external projection (Wave 4)
 README.md                 # private — for me, on my phone
 ```
 
 ## Session start
 
 Read `welcome.md`, then check `tasks/active/`, then today's
-`journal/` entry if one exists. Or run `/morning` (Wave 2).
+`timeline/` entry if one exists. Or run `/morning` (Wave 2).
 
 ## On honesty
 

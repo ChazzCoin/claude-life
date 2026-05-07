@@ -9,7 +9,7 @@ Curated chains for routine moments. Read one, run the chain.
 1. Read [`.claude/welcome.md`](welcome.md) — where I left off
 2. `/morning` *(Wave 2)* — daily kickoff
 3. Check [`tasks/active/`](../tasks/active/) — what's already in flight
-4. Skim [`journal/`](../journal/) for yesterday's entry — context
+4. Skim [`timeline/`](../timeline/) for yesterday's entry — context
 
 ## 🌙 Evening
 

@@ -6,14 +6,18 @@ private repo, accessed from any device with markdown support.
 I am Chazz Romeo. I'm CTO and co-founder of VSI and rAI.
 
 This repo holds:
-- **My values + vision** — `.claude/values.md`, `.claude/vision.md`
+- **My values, vision, world-view** — `.claude/values.md`,
+  `.claude/vision.md`, `.claude/world-view.md`
+- **My current state** — `.claude/state.md`
 - **My current chapter and goals** — `tasks/PHASES.md`,
   `tasks/ROADMAP.md`
-- **My daily journal** — `journal/`
+- **My timeline — events, journal, retroactive memories** —
+  `timeline/`
 - **What I know about my people, places, events** — `memories/`
 - **Decisions, retros, lessons, regrets, audits** — `docs/`
-- **The skills + modes that shape how Claude collaborates here**
-  — `.claude/`
+- **Prior versions of evolved anchor docs** — `archive/`
+- **The skills + modes that shape how Claude collaborates
+  here** — `.claude/`
 
 If you're reading this, you're either me, or you have my
 explicit permission. There is no public version of this repo.

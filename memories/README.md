@@ -4,48 +4,83 @@ Durable long-term facts. Reference, not reflection.
 
 ```
 memories/
-├── people/<name>.md      # one file per person
-├── events/<slug>.md      # significant events
-└── places/<slug>.md      # places that matter
+├── people/
+│   ├── INDEX.md
+│   ├── family/<name>.md
+│   ├── business/<name>.md      # VSI, rAI co-founders, advisors, key reports
+│   ├── core/<name>.md          # closest 3-5
+│   ├── friends/<name>.md       # broader friends
+│   └── lost/<name>.md          # deceased, faded, estranged
+├── events/<slug>.md             # significant events
+└── places/<slug>.md             # places that matter
 ```
 
 ---
 
-## What goes here vs. journal vs. docs
+## What goes here vs. timeline vs. docs
 
-- **Journal** is processing in time — today's thinking. Fast,
-  raw, chronological.
-- **Docs** are reflective records — decisions, regrets,
+- **Timeline** is *time-keyed*. Today's thinking, today's
+  events, retroactive memories from any era. One file per
+  date or event-shaped piece.
+- **Docs** are *reflective records* — decisions, regrets,
   lessons, retros. Curated.
-- **Memories** are durable facts — names, dates, relationships,
-  contexts. The reference layer.
+- **Memories** are *durable facts* — names, dates,
+  relationships, contexts. The reference layer.
 
-When Claude needs to know who someone is, what happened on a
-date, or what a place means → memories.
-When Claude needs to know what I learned, decided, or regret →
-docs.
-When I'm thinking *now* about *now* → journal.
+When Claude needs to know who someone is → `memories/people/`.
+When Claude needs the chronology of *a specific date or
+event* → `timeline/`.
+When Claude needs my thinking *now* about *now* → today's
+timeline entry.
 
 ## People
 
-`memories/people/<lowercase-name>.md`. Suggested shape (adapt
-freely):
+`memories/people/<category>/<lowercase-name>.md`. Five
+categories:
 
-- **Who** — relationship, role, how I know them
-- **What I know** — context that wouldn't be obvious to a
-  stranger
-- **Recent state** — what's going on with them lately
-- **Patterns** — how they communicate, what works/doesn't
-- **Open threads** — last conversation, things still in motion
+- **family** — relatives, blood and chosen
+- **business** — co-founders (VSI, rAI), advisors, investors,
+  key reports
+- **core** — the closest 3-5; the ones who know me
+- **friends** — broader friend circle
+- **lost** — deceased, faded, estranged. Still in the record
+  because the relationship was real and shaped me.
 
-When Claude is about to write to or about a person, it should
+Suggested file shape (loose; adapt):
+
+```markdown
+# Name
+
+**Relationship:** ...
+**Status:** active / faded / estranged / deceased
+**Where they live:** ...
+**How we met:** [link to timeline entry if exists]
+
+## YYYY-MM — Met
+[freeform]
+
+## YYYY-MM — [next milestone]
+[freeform]
+
+## YYYY-MM — Current
+[most recent state]
+```
+
+**Append-only dated sections** — never erase, only add. The
+shape of the file becomes a chronology of the relationship.
+
+When Claude is about to write to or about someone, it should
 read this file first.
 
 ## Events
 
-`memories/events/YYYY-MM-DD-<slug>.md`. Things that happened
-that need durable record beyond a journal entry. Births,
-deaths, moves, milestones, watershed conversations.
+`memories/events/YYYY-MM-DD-<slug>.md`. Things significant
+enough for their own durable file beyond a timeline entry.
+Births, deaths, moves, watershed conversations.
+
+(Most events live in `timeline/` directly. The
+`memories/events/` folder is for events you want extra-easy
+to re-find by category, not date.)
 
 ## Places
 
