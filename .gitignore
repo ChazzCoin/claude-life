@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python (in case the api/ subsystem uses it)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# Node (in case the api/ subsystem uses it)
+node_modules/
+npm-debug.log*
+
+# Local-only experimentation that shouldn't be tracked
+scratch/
+.scratch/
