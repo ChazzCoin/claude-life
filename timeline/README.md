@@ -36,26 +36,64 @@ Timeline entries are freeform. Format follows content:
 The file shape is yours. No required headings, no required
 sections. The entry's *form* should match its *content*.
 
-## The one structured exception: state blocks
+## Block headers — contribution markers
 
-When `/check-in` runs (Wave 2), it appends a structured block to
-today's timeline entry. State blocks have a consistent shape so
-trend skills can grep them across files later:
+Skills that write to a daily timeline entry add a *contribution
+marker* at the top of their block. The marker is just a header
+that says "what added this and when" — it doesn't constrain the
+content beneath it.
+
+| Header | Source skill | Content shape |
+|---|---|---|
+| `## STATE HH:MM` | `/check-in` | Multi-axis structured (Mood, Energy, Focus, Body, Social, Context, Note) |
+| `## NOTE HH:MM` | `/journal` | Freeform — whatever the user writes |
+| `## MORNING HH:MM` | `/morning` | Today's intention (one line, usually) |
+| `## EVENING HH:MM` | `/evening` | Stayed open / Surprises / Tomorrow |
+
+State blocks are the only headers with a structured body —
+trend skills grep `## STATE` and parse the axis labels. The
+rest are just time-stamped markers; the content beneath them
+is whatever the moment needs.
+
+You can also write content with no header at all (just append
+freeform). The headers are for skill-written contributions, not
+a requirement.
+
+Example of a daily file with multiple block types:
 
 ```
+# 2026-05-07
+
+## MORNING 08:30
+
+Intention: get the rAI deck in shape for Thursday.
+
+## STATE 08:35
+
+Mood:    focused, slightly tired
+Energy:  6/10
+Focus:   clear
+Context: Tuesday morning, deck day
+
+## NOTE 11:42
+
+The Slide 7 framing isn't landing. Need a different angle on
+"why now." Maybe lead with the regulatory shift instead of the
+tech. Trying something at lunch.
+
 ## STATE 14:32
 
-Mood:    focused, less tired
-Energy:  7/10
-Focus:   clear
-Body:    sore neck
-Social:  isolated this week
-Context: rAI fundraise call went well
-```
+Mood:    grinding
+Energy:  5/10
+Focus:   narrowing
+Context: 3 hours into the deck rework
 
-The rest of the file ignores this shape — write whatever else
-you want, however you want. State blocks are isolated by their
-header convention; everything else is narrative.
+## EVENING 22:15
+
+Stayed open: slide 7 still not solved
+Surprises:   the architecture diagram took twice as long as expected
+Tomorrow:    fresh eyes on slide 7 first thing
+```
 
 ## Cross-references
 
